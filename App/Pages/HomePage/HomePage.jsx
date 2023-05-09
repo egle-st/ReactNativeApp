@@ -1,9 +1,7 @@
-import React from "react";
-//import Svg, { Image } from "react-native-svg";
 import { StatusBar } from "expo-status-bar";
+import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import Logo from "../../assets/logoAPI.svg";
-
 import Button from "../../Components/Button/Button";
 import { buttonStyles } from "../../Components/Button/buttonstyles";
 
@@ -22,7 +20,7 @@ const HomePage = ({ navigation }) => {
         <Button
           title={"Browse"}
           style={buttonStyles.allButtons}
-          onPress={() => navigation.navigate("Browse")}
+          onPress={() => navigation.navigate("Home")}
         />
         <Button
           title={"Login"}
@@ -33,7 +31,8 @@ const HomePage = ({ navigation }) => {
       <View style={styles.container2}>
         <Logo width={50} height={50} />
         <Text style={styles.textBottom}>
-          Photo by Olena Sergienko on Unsplash
+          *Photo by Olena Sergienko on Unsplash. {"\n"}*This product uses the
+          TMDB API but is not endorsed or certified by TMDB.
         </Text>
       </View>
       <StatusBar style="auto" />
@@ -48,11 +47,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "column",
     widht: "100%",
-
-    //width: "100%",
-    //width: orientation === "portrait" ? "30%" : "50%",
-    //height: orientation === "portrait" ? "30%" : "50%",
-    //paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   container2: {
     alignItems: "flex-end",
@@ -72,7 +66,7 @@ const styles = StyleSheet.create({
   },
   textBottom: {
     color: "#C9CCD5",
-    fontSize: 10,
+    fontSize: 9,
     margin: 5,
   },
   logo: {

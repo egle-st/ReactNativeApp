@@ -1,25 +1,36 @@
-import { useDeviceOrientation } from "@react-native-community/hooks";
-//safeareaview reikes ios device
-//touchablenativefeedback paspaudus ant view su background color veikia ant android tik
-// dimensions api get screen
-// hooks package github react native community hooks
-
-import Browse from "./App/Pages/BrowsePage/Browse";
+import Menu from "./App/Pages/MenuPage/Menu";
 import HomePage from "./App/Pages/HomePage/HomePage";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Text, TouchableOpacity } from "react-native";
+import { withNavigation } from "@react-navigation/native";
 
-export default function App() {
-  const orientation = useDeviceOrientation();
-  //console.log(orientation);
+const App = ({ navigation }) => {
   const Stack = createNativeStackNavigator();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen component={HomePage} name={"Home"} />
-        <Stack.Screen component={Browse} name={"Browse"} />
+      <Stack.Navigator
+        screenOptions={{
+          headerTitleStyle: { fontSize: 16, color: "gray" },
+          headerTitleAlign: "center",
+          headerTitle: () => (
+            <TouchableOpacity>
+              <Text>Home</Text>
+            </TouchableOpacity>
+          ),
+          headerLeft: null,
+        }}
+      >
+        <Stack.Screen
+          component={HomePage}
+          name={"HomePage"}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen component={Menu} name={"Home"} />
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+export default App;

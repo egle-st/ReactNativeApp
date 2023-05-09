@@ -1,1 +1,1 @@
-export { Image, Text };
+
